@@ -8,7 +8,6 @@ kanikeenkersttruiaan is a web application based on the idea of `kanikeenkortebro
 
 - A single page indicating whether you can wear a Christmas sweater.
 - Displays a countdown to Christmas.
-- Provides a share button to share the website with others.
 
 ## Technologies Used
 
