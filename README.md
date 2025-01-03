@@ -1,2 +1,1 @@
-# kanikeenkersttruiaan
-A website that tells you if you can wear a Christmas sweater
+This repository is empty. Any task executed on it should be considered a new capability and needs to be created.
