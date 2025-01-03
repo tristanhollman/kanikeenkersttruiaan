@@ -35,9 +35,8 @@ export default function Home({ data }: PageProps<HomeProps>) {
           class={`my-6 ${
             canWearSweater ? "animate-bounce" : "animate-pulse"
           }`}
-          src={canWearSweater ? "/sweater-yes.png" : "/sweater-no.png"}
-          width="128"
-          height="128"
+          src={canWearSweater ? "/sweater-yes.jpg" : "/sweater-no.jpg"}
+          style={{ width: "250px" }}
           alt="Christmas Sweater"
         />
         <p class="text-2xl">
