@@ -36,8 +36,7 @@ export default function Home({ data }: PageProps<HomeProps>) {
             canWearSweater ? "animate-bounce" : "animate-pulse"
           }`}
           src={canWearSweater ? "/sweater-yes.jpg" : "/sweater-no.jpg"}
-          width="128"
-          height="128"
+          style={{ width: "250px" }}
           alt="Christmas Sweater"
         />
         <p class="text-2xl">
