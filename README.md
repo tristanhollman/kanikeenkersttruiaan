@@ -5,8 +5,8 @@
 
 kanikeenkersttruiaan is a web application based on the idea of `kanikeenkortebroekaan.nl`, which tells you whether you can wear shorts yet. This project will tell you if you can wear a Christmas sweater.
 
-## Fun Fact
-This project has been made using Github Copilot Workspaces (technical preview) apart from some small tweaks like running the scaffolder and finding/uploading the images.
+## Github Copilot Workspaces
+Fun fact, this project is being made using Github Copilot Workspaces (technical preview) apart from some small tweaks like running the scaffolder and finding/uploading the images.
 
 ## Features
 
