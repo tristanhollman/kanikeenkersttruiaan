@@ -1,6 +1,5 @@
 import { useSignal } from "@preact/signals";
 import { useEffect } from "preact/hooks";
-import Counter from "../islands/Counter.tsx";
 
 export default function Home() {
   const count = useSignal(3);
@@ -43,7 +42,6 @@ export default function Home() {
         <p class="text-xl mt-4">
           {daysUntilChristmas.value} days until Christmas!
         </p>
-        <Counter count={count} />
       </div>
     </div>
   );
