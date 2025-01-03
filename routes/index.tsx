@@ -1,45 +1,52 @@
-import { useSignal } from "@preact/signals";
-import { useEffect } from "preact/hooks";
+import { Handlers, PageProps } from "$fresh/server.ts";
 
-export default function Home() {
-  const canWearSweater = useSignal(false);
-  const daysUntilChristmas = useSignal(0);
+interface HomeProps {
+  canWearSweater: boolean;
+  daysUntilChristmas: number;
+}
 
-  useEffect(() => {
+export const handler: Handlers<HomeProps> = {
+  GET(_, ctx) {
     const today = new Date();
     const start = new Date(today.getFullYear(), 11, 1); // 1 Dec
     const end = new Date(today.getFullYear(), 11, 25); // 25 Dec
-    canWearSweater.value = today >= start && today <= end;
+    const canWearSweater = today >= start && today <= end;
 
     const christmas = new Date(today.getFullYear(), 11, 25);
     const diffTime = Math.abs(christmas.getTime() - today.getTime());
-    daysUntilChristmas.value = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-  }, []);
+    const daysUntilChristmas = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+    return ctx.render({ canWearSweater, daysUntilChristmas });
+  },
+};
+
+export default function Home({ data }: PageProps<HomeProps>) {
+  const { canWearSweater, daysUntilChristmas } = data;
 
   return (
     <div
       class={`min-h-screen px-4 py-8 mx-auto ${
-        canWearSweater.value ? "bg-green-500" : "bg-red-500"
+        canWearSweater ? "bg-green-500" : "bg-red-500"
       } transition-colors duration-500`}
     >
       <div class="max-w-screen-md mx-auto flex flex-col items-center justify-center">
         <h1 class="text-4xl font-bold">Can I Wear a Christmas Sweater?</h1>
         <img
           class={`my-6 ${
-            canWearSweater.value ? "animate-bounce" : "animate-pulse"
+            canWearSweater ? "animate-bounce" : "animate-pulse"
           }`}
-          src={canWearSweater.value ? "/sweater-yes.png" : "/sweater-no.png"}
+          src={canWearSweater ? "/sweater-yes.png" : "/sweater-no.png"}
           width="128"
           height="128"
           alt="Christmas Sweater"
         />
         <p class="text-2xl">
-          {canWearSweater.value
+          {canWearSweater
             ? "Yes, you can wear a Christmas sweater!"
             : "No, you cannot wear a Christmas sweater yet."}
         </p>
         <p class="text-xl mt-4">
-          {daysUntilChristmas.value} days until Christmas!
+          {daysUntilChristmas} days until Christmas!
         </p>
       </div>
     </div>
