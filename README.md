@@ -1,3 +1,4 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Deploy](https://github.com/tristanhollman/kanikeenkersttruiaan/actions/workflows/deploy.yml/badge.svg)](https://github.com/tristanhollman/kanikeenkersttruiaan/actions/workflows/deploy.yml)
 
 # kanikeenkersttruiaan
