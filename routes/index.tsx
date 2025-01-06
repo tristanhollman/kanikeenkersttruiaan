@@ -43,9 +43,7 @@ export default function Home({ data }: PageProps<HomeProps>) {
       <div class="max-w-screen-md mx-auto flex flex-col items-center justify-center">
         <h1 class="text-4xl font-bold">Can I Wear a Christmas Sweater?</h1>
         <img
-          class={`my-6 ${
-            canWearSweater ? "animate-bounce" : "animate-pulse"
-          }`}
+          class="my-6 animate-pulse"
           src={canWearSweater ? "/sweater-yes.jpg" : "/sweater-no.jpg"}
           style={{ width: "250px" }}
           alt="Christmas Sweater"
