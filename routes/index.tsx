@@ -6,12 +6,23 @@ interface HomeProps {
 }
 
 export const handler: Handlers<HomeProps> = {
-  GET(_, ctx) {
-    const today = new Date();
-    const start = new Date(today.getFullYear(), 11, 1); // 1 Dec
-    const end = new Date(today.getFullYear(), 11, 25); // 25 Dec
-    const canWearSweater = today >= start && today <= end;
+  GET(req, ctx) {
+    const url = new URL(req.url);
+    const result = url.searchParams.get("result");
 
+    let canWearSweater: boolean;
+    if (result === "yes") {
+      canWearSweater = true;
+    } else if (result === "no") {
+      canWearSweater = false;
+    } else {
+      const today = new Date();
+      const start = new Date(today.getFullYear(), 11, 1); // 1 Dec
+      const end = new Date(today.getFullYear(), 11, 25); // 25 Dec
+      canWearSweater = today >= start && today <= end;
+    }
+
+    const today = new Date();
     const christmas = new Date(today.getFullYear(), 11, 25);
     const diffTime = Math.abs(christmas.getTime() - today.getTime());
     const daysUntilChristmas = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
